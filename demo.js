@@ -9,5 +9,7 @@
     },
   };
 
-  display(person.isAdult());
+  for (let propertyName in person) {
+    display(propertyName);
+  }
 })();
