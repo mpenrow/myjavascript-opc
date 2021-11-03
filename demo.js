@@ -1,26 +1,17 @@
 "use strict";
 (function () {
-  let person1 = {
-    firstName: "Michael",
-    lastName: "Penrow",
-    age: 29,
-    isAdult() {
-      return this.age >= 18;
-    },
-  };
-
-  let healthStats = {
-    height: 68,
-    weight: 150,
-  };
-
-  function mergeHealthStats(person, healthStats) {
-    return Object.assign({}, person, healthStats);
+  function Person(firstName, lastName, age) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.age = age;
+    this.isAdult = function () {
+      return this.age >= 21;
+    };
   }
 
-  let mergedPerson = mergeHealthStats(person1, healthStats);
+  let jim = new Person("Jim", "Cooper", 29);
+  let sophia = new Person("Sophia", "Cooper", 17);
 
-  display(mergedPerson);
-
-  display(person1);
+  display(jim.isAdult());
+  display(sophia.isAdult());
 })();
