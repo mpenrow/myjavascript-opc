@@ -6,6 +6,8 @@
     lastName: 'Cooper'
   };
 
-  display(person.firstName);
+  person.age = 29;
+
+  display(person.age);
 
 })();
