@@ -1,6 +1,11 @@
 'use strict'; 
 (function() {
 
-  display('Hello World!');
+  let person = {
+    firstName: 'Jim',
+    lastName: 'Cooper'
+  };
+
+  display(person.firstName);
 
 })();
