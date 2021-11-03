@@ -1,13 +1,13 @@
-'use strict'; 
-(function() {
-
+"use strict";
+(function () {
   let person = {
-    firstName: 'Jim',
-    lastName: 'Cooper'
+    firstName: "Jim",
+    lastName: "Cooper",
+    age: 18,
+    isAdult: function () {
+      return this.age >= 18;
+    },
   };
 
-  person.age = 29;
-
-  display(person.age);
-
+  display(person.isAdult());
 })();
