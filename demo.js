@@ -6,7 +6,5 @@
     age: 29,
   };
 
-  for (let propertyName in person) {
-    display(propertyName + ": " + person[propertyName]);
-  }
+  display(Object.getOwnPropertyDescriptor(person, "firstName"));
 })();
