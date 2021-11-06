@@ -5,12 +5,11 @@
     this.lastName = lastName;
   }
 
-  Person.prototype.age = 29;
+  Person.prototype.age = 4;
 
   let jim = new Person("Jim", "Cooper");
-  let sophia = new Person("Sofia", "Cooper");
 
-  jim.age = 18;
-  display(jim.hasOwnProperty("age"));
-  display(jim.age);
+  display(jim.__proto__);
+  display(jim.__proto__.__proto__);
+  display(jim.__proto__.__proto__.__proto__);
 })();
