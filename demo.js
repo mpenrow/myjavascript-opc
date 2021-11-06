@@ -1,28 +1,20 @@
 "use strict";
 (function () {
-  let person = {
-    name: {
-      first: "Jim",
-      last: "Cooper",
-    },
-    age: 29,
-  };
+  function Person(firstName, lastName) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+  }
 
-  Object.defineProperty(person, "fullName", {
-    get: function () {
-      return this.name.first + " " + this.name.last;
-    },
-    set: function (value) {
-      var nameParts = value.split(" ");
-      this.name.first = nameParts[0];
-      this.name.last = nameParts[1];
-    },
-  });
+  Person.prototype.age = 29;
 
-  person.fullName = "Fred Jones";
+  display(Person.prototype);
 
-  display(person.fullName);
+  let jim = new Person("Jim", "Cooper");
+  let sophia = new Person("Sofia", "Cooper");
+  sophia.__proto__.age = 19;
 
-  display(person.name.first);
-  display(person.name.last);
+  display(jim.__proto__);
+  display(sophia.__proto__);
+
+  display(Person.prototype === jim.__proto__);
 })();
