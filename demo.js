@@ -7,6 +7,8 @@
       this.age = age;
     }
 
+    static adultAge = 18;
+
     get fullName() {
       return this.firstName + " " + this.lastName;
     }
@@ -22,10 +24,16 @@
     }
   }
 
+  display(Person.adultAge);
+
   class Student extends Person {
     constructor(firstName, lastName, age) {
       super(firstName, lastName, age);
       this._enrolledCourses = [];
+    }
+
+    static fromPerson(person) {
+      return new Student(person.firstName, person.lastName, person.age);
     }
 
     enroll(courseId) {
@@ -41,9 +49,9 @@
     }
   }
 
-  let jim = new Student("Jim", "Cooper", 29);
+  let jim = new Person("Jim", "Cooper", 29);
 
-  jim.enroll("CS101");
+  let jimStudent = Student.fromPerson(jim);
 
-  display(jim);
+  display(jimStudent);
 })();
