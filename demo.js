@@ -21,9 +21,29 @@
       return this.age >= 18;
     }
   }
-  Object.defineProperty(Person.prototype, "fullName", { enumerable: true });
 
-  let jim = new Person("Jim", "Cooper", 29);
+  class Student extends Person {
+    constructor(firstName, lastName, age) {
+      super(firstName, lastName, age);
+      this._enrolledCourses = [];
+    }
+
+    enroll(courseId) {
+      this._enrolledCourses.push(courseId);
+    }
+
+    getCourses() {
+      return (
+        this.fullName +
+        "'s enrolled courses are: " +
+        this._enrolledCourses.join(", ")
+      );
+    }
+  }
+
+  let jim = new Student("Jim", "Cooper", 29);
+
+  jim.enroll("CS101");
 
   display(jim);
 })();
